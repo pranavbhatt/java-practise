@@ -20,10 +20,10 @@ class MyQueueTest {
 			queue.enqueue(3);
 			queue.enqueue(4);
 			this.queue.enqueue(6);
-			Assertions.assertThrows(QueueFullException.class, () -> {this.queue.enqueue(7);});
 		} catch (QueueFullException e) {
 			e.printStackTrace();
 		}
+		Assertions.assertThrows(QueueFullException.class, () -> {this.queue.enqueue(7);});
 		Assertions.assertTrue(queue.isFull());
 	}
 	
