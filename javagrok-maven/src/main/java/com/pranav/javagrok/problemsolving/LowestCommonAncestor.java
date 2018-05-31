@@ -1,15 +1,12 @@
 package com.pranav.javagrok.problemsolving;
 
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
+import com.pranav.javagrok.datastructures.TreeNode;
 
-	TreeNode(int x) {
-		val = x;
-	}
-}
-
+/**
+ * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/
+ * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
+ * 
+ */
 public class LowestCommonAncestor {
 	/*
 	 * <left.val <= root.val <= right.val
