@@ -1,18 +1,18 @@
 package com.pranav.javagrok.desigpatterns;
 
 //Eager Initialized
-public class Sigleton {
+public class Singleton {
 	 
     // Private static instance is created at the time of class loading
-    private static Sigleton instance = new Sigleton();
+    private static Singleton instance = new Singleton();
  
     // Constructor made private so that no new instance can be created
-    private Sigleton() {
+    private Singleton() {
  
     }
  
     // Static method to return the instance to the client
-    public static Sigleton getInstance() {
+    public static Singleton getInstance() {
         return instance;
     }
 }
@@ -118,10 +118,12 @@ class BillPughSingleton {
 	 
     private BillPughSingleton(){}
      
+    //static inner class - inner classes are not loaded until they are referenced.
     private static class SingletonHelper{
         private static final BillPughSingleton INSTANCE = new BillPughSingleton();
     }
-     
+    
+    //global access point
     public static BillPughSingleton getInstance(){
         return SingletonHelper.INSTANCE;
     }

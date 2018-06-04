@@ -37,4 +37,34 @@ public class BST {
         if(root.val >= max || root.val <= min) return false;
         return isValidBST(root.left, min, root.val) && isValidBST(root.right, root.val, max);
     }
+    
+    public TreeNode deleteNode(TreeNode root, int key) {
+        //base case
+        if(root == null) return root;
+        
+        if(key < root.val){
+            root.left = deleteNode(root.left, key);
+        }else if(key > root.val){
+            root.right = deleteNode(root.right, key);            
+        }else{
+            //this is the node to be deleted, root.val == key
+            //if node has one child or no child
+            if(root.left == null) return root.right;
+            if(root.right == null) return root.left;
+            
+            //has 2 children, find inorder succesor
+            root.val = successor(root.right);
+            root.right = deleteNode(root.right, root.val);//remove the copied node
+        }
+        return root;
+    }
+    
+    private int successor(TreeNode root){
+        int min = root.val;
+        while(root.left != null){
+            min = root.left.val;
+            root = root.left;
+        }
+        return min;
+    }
 }
